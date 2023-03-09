@@ -1,4 +1,5 @@
-import AppVue from "@/App.vue";
+import GenshinDBHome from "@/views/GenshinDBHome.vue";
+import GenshinDBCharacters from "@/views/GenshinDBCharacters.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -7,7 +8,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: AppVue,
+      component: GenshinDBHome,
+    },
+    {
+      path: "/characters",
+      name: "characters",
+      component: GenshinDBCharacters,
     },
   ],
 });
