@@ -21,7 +21,7 @@ function resizeHandler(): void {
 </script>
 
 <template>
-  <header ref="headerRef" class="bg-slate-800 h-24 flex items-center">
+  <header ref="headerRef" class="bg-[#282A3A] h-24 flex items-center">
     <div
       class="h-full mx-4 sm:mx-auto sm:w-10/12 w-full flex flex-row items-center"
     >
@@ -30,7 +30,7 @@ function resizeHandler(): void {
         class="mr-auto w-max text-neutral-200 font-bold lg:text-7xl md:text-6xl text-2xl leading-none justify-self-start whitespace-nowrap h-full flex items-center"
         >GenshinDB</router-link
       >
+      <GenshinDBNav v-if="headerWidth >= 768" />
     </div>
-    <GenshinDBNav v-if="headerWidth >= 768" />
   </header>
 </template>
