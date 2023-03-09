@@ -4,6 +4,9 @@ import GenshinDBHeader from "./components/GenshinDBHeader.vue";
 
 <template>
   <GenshinDBHeader />
+  <main class="bg-[#404258] min-h-screen pt-10">
+    <router-view></router-view>
+  </main>
 </template>
 
 <style scoped></style>
