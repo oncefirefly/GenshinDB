@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { useCharNamesStore } from "@/stores/CharNamesStore";
+import { useCharDetailsStoreStore } from "@/stores/CharDetailsStore";
 
-const charNamesStore = useCharNamesStore();
+const charDetailsStore = useCharDetailsStoreStore();
+
+charDetailsStore.getCharDetailsList();
 </script>
 
 <template>
-  <div v-for="character of charNamesStore.charNames" :key="character">
+  <div v-for="character of charDetailsStore.charsDetails" :key="character">
     {{ character }}
   </div>
 </template>

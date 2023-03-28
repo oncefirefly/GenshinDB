@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref, onMounted, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 import { getCharNames } from "@/api/characters/getCharNames";
 
 export const useCharNamesStore = defineStore("CharNamesStore", () => {
@@ -8,17 +8,12 @@ export const useCharNamesStore = defineStore("CharNamesStore", () => {
     storedCharNames.length ? JSON.parse(storedCharNames) : []
   );
 
-  const getCharList = async (): Promise<void> => {
+  const getCharList = async (): Promise<string[]> => {
     charNames.value = await getCharNames();
 
     localStorage.setItem("charNames", JSON.stringify(charNames.value));
+    return charNames.value;
   };
-
-  onMounted(() => {
-    if (!charNames.value.length) {
-      getCharList();
-    }
-  });
 
   return { charNames, getCharList };
 });
