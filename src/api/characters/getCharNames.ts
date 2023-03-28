@@ -1,7 +1,16 @@
+import axios from "axios";
 import { apiURL } from "../apiURL";
 
-export const getCharNames = (): Promise<string[]> =>
-  fetch(`${apiURL}/characters?query=names&matchCategories=true`)
-    .then((res) => res.json())
-    .then((charNames) => charNames)
-    .catch((err) => console.log(err));
+export const getCharNames = async (): Promise<string[]> => {
+  try {
+    const res = await axios.get<string[]>(
+      `${apiURL}/characters?query=names&matchCategories=true`
+    );
+
+    return res.data;
+  } catch (error) {
+    console.log(error);
+
+    return [];
+  }
+};
